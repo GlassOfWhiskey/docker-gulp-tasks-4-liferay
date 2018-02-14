@@ -1,0 +1,33 @@
+{
+  "name": "docker-gulp-tasks-4-liferay",
+  "version": "1.0.0",
+  "description": "Hook module that allows developers to use Gulp watch functionalities with a Liferay 7 Docker container",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "author": "GlassOfWhiskey <iacopo.c92@gmail.com> (https://github.com/GlassOfWhiskey)",
+  "repository": "GlassOfWhiskey/docker-gulp-tasks-4-liferay",
+  "license": "MIT",
+  "keywords": [
+    "docker",
+    "liferay",
+    "theme"
+  ],
+  "dependencies": {
+    "fs-extra": "^0.24.0",
+    "globby": "^4.0.0",
+    "gulp-debug": "^2.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-util": "^3.0.6",
+    "liferay-theme-tasks": "^1.4.2",
+    "lodash": "^3.10.0",
+    "path": "^0.12.7",
+    "run-sequence": "^1.0.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "liferay-theme-deps-7.0": "*"
+  }
+}
