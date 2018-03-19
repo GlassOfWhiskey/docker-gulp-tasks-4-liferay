@@ -64,7 +64,7 @@ module.exports = function(options) {
 		var fastDeployPaths = getFastDeployPaths();	
 		var webBundleDirName = '.web_bundle_build';
 		var dockerThemesDir = options.dockerThemesDir || '/tmp/themes';
-		var dockerThemePath = path.join(dockerThemesDir, store.get('themeName'));
+		var dockerThemePath = path.join(dockerThemesDir, getThemeFolderName());
 		var dockerBundleDirPath = path.join(dockerThemePath, webBundleDirName).split(path.sep).join('/');
 		var dockerContainerName = options.dockerContainerName;
 		
@@ -103,7 +103,7 @@ module.exports = function(options) {
 		var tempThemeDir;
 
 		if (fs.existsSync(tempDirPath) && fs.statSync(tempDirPath).isDirectory()) {
-			var themeName = store.get('themeName');
+			var themeName = getThemeFolderName();
 
 			var tempDir = fs.readdirSync(tempDirPath);
 
@@ -115,5 +115,22 @@ module.exports = function(options) {
 		fastDeployPaths.tempDest = tempThemeDir;
 
 		return fastDeployPaths;
+	}
+	
+	function getThemeFolderName() {
+		
+		var themeFolderName = store.get('themeName');
+		
+		if(!themeFolderName) {
+				
+			themeFolderName = store.get('pluginName');
+		}
+		
+		if(!themeFolderName) {
+				
+			themeFolderName = themeConfig.name;
+		}
+		
+		return themeFolderName;
 	}
 };
