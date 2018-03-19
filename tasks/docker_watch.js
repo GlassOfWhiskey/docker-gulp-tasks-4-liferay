@@ -6,7 +6,7 @@ var livereload = require('gulp-livereload');
 var plugins = require('gulp-load-plugins')();
 var gutil = plugins.util;
 var lfrThemeConfig = require('liferay-theme-tasks/lib/liferay_theme_config.js');
-var themeConfig = lfrThemeConfig.getConfig();
+var themeConfig = lfrThemeConfig.getConfig(true);
 var DockerWatchSocket = require('../lib/docker_watch_socket.js');
 var execSync = require('child_process').execSync;
 
@@ -21,7 +21,7 @@ module.exports = function(options) {
 	var runSequence = require('run-sequence').use(gulp);
 	var webBundleDirName = '.web_bundle_build';
 	var dockerThemesDir = options.dockerThemesDir || '/tmp/themes';
-	var dockerThemePath = path.join(dockerThemesDir, store.get('themeName'));
+	var dockerThemePath = path.join(dockerThemesDir, getThemeFolderName());
 	var webBundleDir = path.join(process.cwd(), webBundleDirName);
 	var connectParams = _.assign({}, CONNECT_PARAMS, options.gogoShellConfig);
 	var dockerContainerName = options.dockerContainerName;
@@ -160,5 +160,22 @@ module.exports = function(options) {
 		});
 
 		return watchSocket;
+	}
+	
+	function getThemeFolderName() {
+		
+		var themeFolderName = store.get('themeName');
+		
+		if(!themeFolderName) {
+				
+			themeFolderName = store.get('pluginName');
+		}
+		
+		if(!themeFolderName) {
+				
+			themeFolderName = themeConfig.name;
+		}
+		
+		return themeFolderName;
 	}
 }
