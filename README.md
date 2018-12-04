@@ -1,4 +1,8 @@
-# Docker Gulp Tasks For Liferay
+# :no_entry: DEPRECATED :no_entry: - Docker Gulp Tasks For Liferay
+
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+Starting with version 8.0.0-rc.0 of official [liferay-themes-sdk](https://github.com/liferay/liferay-themes-sdk) project, docker support comes OOTB. Please use this project only for Liferay 7.0.0 GAx compatibility.
 
 > The docker-gulp-tasks-4-liferay module is intended for use with Yeoman generated [Liferay themes](https://github.com/liferay/generator-liferay-theme). In particular, it allows to use gulp watch features on the host machine when Liferay runs on a local container. Please refer to this [blog article](https://web.liferay.com/it/web/glassofwhiskey/blog/-/blogs/liferay-and-docker-dockerised-liferay-workspace) for more details.
 

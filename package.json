@@ -1,6 +1,6 @@
 {
   "name": "docker-gulp-tasks-4-liferay",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Hook module that allows developers to use Gulp watch functionalities with a Liferay 7 Docker container",
   "main": "index.js",
   "scripts": {
